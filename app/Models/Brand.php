@@ -6,17 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Checkin extends Model
+class Brand extends Model
 {
-    //
     use HasFactory, SoftDeletes;
-    protected $fillable = [
-        'employee_id',
-        'type',
-        'time',
-    ];
-    public function employee()
+    protected $fillable = ['name', 'slug', 'description', 'logo_path'];
+
+    public function products()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->hasMany(Product::class);
     }
 }

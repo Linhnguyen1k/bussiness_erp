@@ -33,4 +33,8 @@ class Employee extends Model
     {
         return $this->belongsToMany(Role::class, 'employee_role', 'employee_id', 'role_id');
     }
+    public function checkins()
+    {
+        return $this->hasMany(Checkin::class);
+    }
 }

@@ -17,7 +17,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-
+use Saade\FilamentFullCalendar\FilamentFullCalendarPlugin;
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -40,6 +40,15 @@ class AdminPanelProvider extends PanelProvider
                 AccountWidget::class,
                 FilamentInfoWidget::class,
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
+            ->plugin(
+            FilamentFullCalendarPlugin::make()
+                ->selectable(true)
+                ->editable(true)
+                ->timezone(config('app.timezone'))
+                ->locale(config('app.locale'))
+                // Nếu có license premium cho scheduler: ->schedulerLicenseKey('YOUR_KEY')
+        )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

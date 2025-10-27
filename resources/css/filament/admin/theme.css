@@ -1,0 +1,7 @@
+@import 'tailwindcss';  /* Cho Tailwind v4 */
+
+@import '../../../../vendor/filament/filament/resources/css/theme.css';  /* Filament core theme */
+
+@import '../../../../vendor/saade/filament-fullcalendar/resources/css/filament-fullcalendar.css';  /* Plugin CSS */
+
+@source '../../../../vendor/saade/filament-fullcalendar/resources/views/**/*.blade.php';  
