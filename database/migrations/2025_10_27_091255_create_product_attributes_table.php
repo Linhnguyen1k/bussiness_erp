@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('product_attributes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->string('name'); // ví dụ: "Màu sắc", "Kích thước"
+            $table->string('name')->index(); // ví dụ: "Màu sắc", "Kích thước"
             $table->string('value'); // ví dụ: "Đỏ", "M", "256GB"
             $table->timestamps();
         });

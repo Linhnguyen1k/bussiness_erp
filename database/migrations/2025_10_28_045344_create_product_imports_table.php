@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('product_imports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('supplier_id')->nullable()->constrained('suppliers')->nullOnDelete();
-            $table->string('code')->unique();
+            $table->string('code')->unique()->index();
             $table->dateTime('import_date')->default(now());
             $table->decimal('total_amount', 15, 2)->default(0);
             $table->text('note')->nullable();
